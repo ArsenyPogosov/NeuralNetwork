@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(NeuralNetwork VERSION 1.0)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -19,7 +19,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Eigen)
 
 # neural
-add_library(neural src/add.cpp)
+add_library(neural src/activation/linear.cpp src/activation/relu.cpp src/activation/sigmoid.cpp src/activation/soft_max.cpp)
 target_include_directories(
   neural
   INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include"

@@ -1,0 +1,38 @@
+#include <activation_functions.h>
+
+#include <catch2/catch_approx.hpp>
+#include <catch2/catch_test_macros.hpp>
+
+using Catch::Approx;
+using neural::activation::SoftMax;
+
+TEST_CASE("SoftMax is right", "[activation]")
+{
+	Eigen::VectorXd input(5);
+	input << -2, -1, 0, 1, 2;
+	Eigen::VectorXd output(5);
+	output << 0.01165623095604, 0.031684920796124, 0.086128544436269,
+	    0.23412165725274, 0.63640864655883;
+	Eigen::MatrixXd derivative{
+	    {0.011520363235939073, -0.00036932675462344685, -0.0010039342058566682,
+	     -0.002728976108748644, -0.007418126166710314},
+	    {-0.00036932675462344685, 0.0306809865902676, -0.0027289761087486435,
+	     -0.007418126166710313, -0.020164557560185196},
+	    {-0.0010039342058566682, -0.0027289761087486435, 0.0787104182695584,
+	     -0.020164557560185196, -0.05481295039476788},
+	    {-0.002728976108748644, -0.007418126166710313, -0.020164557560185196,
+	     0.17930870685796874, -0.14899704702232458},
+	    {-0.007418126166710314, -0.020164557560185196, -0.05481295039476788,
+	     -0.14899704702232458, 0.23139268114398798},
+	};
+
+	SECTION("eval0 is right")
+	{
+		REQUIRE(SoftMax.Eval0(input).isApprox(output));
+	}
+
+	SECTION("eval1 is right")
+	{
+		REQUIRE(SoftMax.Eval1(input).isApprox(derivative));
+	}
+}

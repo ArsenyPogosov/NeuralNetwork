@@ -7,5 +7,7 @@ AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
 BreakBeforeBraces: Linux
+IndentAccessModifiers: false
+AccessModifierOffset: -4
 
 ...
