@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 3.0)
+
+project(NeuralNetwork VERSION 1.0)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+option(NEURAL_NETWORK_BUILD_TESTS "Build tests for NeuralNetwork library" OFF)
+
+# libraries
+include(FetchContent)
+
+FetchContent_Declare(
+  Eigen
+  GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+  GIT_TAG master)
+FetchContent_MakeAvailable(Eigen)
+
+# neural
+add_library(neural src/add.cpp)
+target_include_directories(
+  neural
+  INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include"
+  PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/neural"
+          "${CMAKE_CURRENT_SOURCE_DIR}/src")
+target_link_libraries(neural PUBLIC Eigen3::Eigen)
+
+# tests
+if(NEURAL_NETWORK_BUILD_TESTS)
+  add_subdirectory(tests)
+endif()
