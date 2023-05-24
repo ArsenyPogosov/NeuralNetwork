@@ -15,11 +15,14 @@ include(FetchContent)
 FetchContent_Declare(
   Eigen
   GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
-  GIT_TAG master)
+  GIT_TAG 3.4.0)
 FetchContent_MakeAvailable(Eigen)
 
 # neural
-add_library(neural src/activation/linear.cpp src/activation/relu.cpp src/activation/sigmoid.cpp src/activation/soft_max.cpp)
+add_library(
+  neural
+  src/activation/linear.cpp src/activation/relu.cpp src/activation/sigmoid.cpp
+  src/activation/soft_max.cpp src/loss/mse.cpp src/loss/cross_entropy.cpp)
 target_include_directories(
   neural
   INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include"
