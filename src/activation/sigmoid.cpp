@@ -5,12 +5,12 @@
 namespace neural::activation
 {
 
-Eigen::VectorXd Sigmoid::Eval0(Eigen::VectorXd x) const
+Eigen::VectorXd Sigmoid::Eval0(const Eigen::VectorXd &x) const
 {
 	return x.unaryExpr([](double x) { return 1 / (1 + std::exp(-x)); });
 }
 
-Eigen::MatrixXd Sigmoid::Eval1(Eigen::VectorXd x) const
+Eigen::MatrixXd Sigmoid::Eval1(const Eigen::VectorXd &x) const
 {
 	Eigen::ArrayXd s = Eval0(x);
 	s *= (1 - s);

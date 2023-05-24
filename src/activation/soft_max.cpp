@@ -5,14 +5,14 @@
 namespace neural::activation
 {
 
-Eigen::VectorXd SoftMax::Eval0(Eigen::VectorXd x) const
+Eigen::VectorXd SoftMax::Eval0(const Eigen::VectorXd &x) const
 {
-	x = x.array().exp();
-	double l = x.sum();
-	return x / l;
+	Eigen::VectorXd res = x.array().exp();
+	double l = res.sum();
+	return res / l;
 }
 
-Eigen::MatrixXd SoftMax::Eval1(Eigen::VectorXd x) const
+Eigen::MatrixXd SoftMax::Eval1(const Eigen::VectorXd &x) const
 {
 	Eigen::MatrixXd s = Eval0(x).replicate(1, x.rows());
 

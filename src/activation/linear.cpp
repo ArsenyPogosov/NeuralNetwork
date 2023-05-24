@@ -3,12 +3,12 @@
 namespace neural::activation
 {
 
-Eigen::VectorXd Linear::Eval0(Eigen::VectorXd x) const
+Eigen::VectorXd Linear::Eval0(const Eigen::VectorXd &x) const
 {
 	return x;
 }
 
-Eigen::MatrixXd Linear::Eval1(Eigen::VectorXd x) const
+Eigen::MatrixXd Linear::Eval1(const Eigen::VectorXd &x) const
 {
 	return Eigen::MatrixXd::Identity(x.rows(), x.rows());
 }
