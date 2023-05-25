@@ -1,6 +1,6 @@
 #pragma once
 
-#include <differentiable/differentiable.h>
+#include <differentiable.h>
 
 #include <Eigen/Dense>
 #include <vector>

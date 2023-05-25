@@ -35,6 +35,11 @@ void NeuralNetworkImpl::SetBatchSize(size_t size)
 {
 	batch_size_ = size;
 }
+void NeuralNetworkImpl::SetLearningRate(
+    std::function<double(int)> learning_rate)
+{
+	learning_rate_ = learning_rate;
+}
 
 Matrix NeuralNetworkImpl::Eval(const Matrix& x)
 {

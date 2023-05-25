@@ -1,10 +1,8 @@
-#pragma once
-
 #include <differentiable.h>
-#include <layer.h>
 
+#include <Eigen/Dense>
 #include <functional>
-#include <initializer_list>
+#include <memory>
 
 namespace neural
 {
@@ -13,14 +11,18 @@ using LossFunction =
     differentiable::Differentiable<double, Eigen::RowVectorXd, Eigen::VectorXd,
                                    Eigen::VectorXd>;
 
-using layer::ActivationFunction;
+using ActivationFunction =
+    differentiable::Differentiable<Eigen::VectorXd, Eigen::MatrixXd,
+                                   Eigen::VectorXd>;
 
-class NeuralNetworkImpl
+class NeuralNetworkImpl;
+
+class NeuralNetwork
 {
 public:
-	NeuralNetworkImpl(std::initializer_list<size_t> sizes,
-	                  std::initializer_list<ActivationFunction> sigmas,
-	                  LossFunction loss);
+	NeuralNetwork(std::initializer_list<size_t> sizes,
+	              std::initializer_list<ActivationFunction> sigmas,
+	              LossFunction loss);
 
 	void SetBatchSize(size_t size);
 	void SetLearningRate(std::function<double(int)> learning_rate);
@@ -35,14 +37,7 @@ public:
 	void LoadCoefs(const std::vector<double> &coefs);
 
 private:
-	double TrainBatch(const Eigen::MatrixXd &x, const Eigen::MatrixXd &y,
-	                  size_t i, size_t size, double d);
-
-	std::vector<layer::Layer> layers_;
-	LossFunction loss_;
-
-	size_t batch_size_;
-	std::function<double(int)> learning_rate_;
+	std::unique_ptr<NeuralNetworkImpl> pimpl_;
 };
 
 }  // namespace neural
