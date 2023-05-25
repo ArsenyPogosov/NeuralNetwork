@@ -1,3 +1,5 @@
+#pragma once
+
 #include <differentiable/differentiable.h>
 
 #include <Eigen/Dense>
