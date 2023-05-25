@@ -7,8 +7,16 @@ include(CTest)
 include(Catch)
 list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 
-add_executable(tests linear.cpp relu.cpp sigmoid.cpp soft_max.cpp mse.cpp
-                     cross_entropy.cpp differentiable.cpp)
+add_executable(
+  tests
+  linear.cpp
+  relu.cpp
+  sigmoid.cpp
+  soft_max.cpp
+  mse.cpp
+  cross_entropy.cpp
+  differentiable.cpp
+  layer.cpp)
 target_include_directories(
   tests PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include/neural"
                 "${CMAKE_CURRENT_SOURCE_DIR}/../src")
