@@ -50,4 +50,8 @@ void NeuralNetwork::LoadCoefs(const std::vector<double> &coefs)
 	pimpl_->LoadCoefs(coefs);
 }
 
+NeuralNetwork::~NeuralNetwork()
+{
+}
+
 }  // namespace neural

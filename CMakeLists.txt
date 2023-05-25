@@ -8,11 +8,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(NEURAL_NETWORK_BUILD_TESTS "Build tests for NeuralNetwork library" OFF)
+option(NEURAL_NETWORK_BUILD_EXAMPLE "Build tests for NeuralNetwork library" OFF)
 
-set(NEURAL_NETWORK_DEFAULT_BATCH_SIZE "10" CACHE STRING "")
+set(NEURAL_NETWORK_DEFAULT_BATCH_SIZE
+    "10"
+    CACHE STRING "")
 set(NEURAL_NETWORK_DEFAULT_STARTING_LEARNING_RATE
-	"0.01" CACHE STRING "")
-set(NEURAL_NETWORK_DEFAULT_LEARNING_RATE_DECAY "0.01" CACHE STRING "")
+    "0.01"
+    CACHE STRING "")
+set(NEURAL_NETWORK_DEFAULT_LEARNING_RATE_DECAY
+    "0.01"
+    CACHE STRING "")
 
 configure_file(src/defaults.h.in defaults.h)
 
@@ -35,7 +41,8 @@ add_library(
   src/loss/mse.cpp
   src/loss/cross_entropy.cpp
   src/layer.cpp
-  src/neural_network_impl.cpp)
+  src/neural_network_impl.cpp
+  src/neural_network.cpp)
 target_include_directories(
   neural
   INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include"
@@ -46,4 +53,9 @@ target_link_libraries(neural PUBLIC Eigen3::Eigen)
 # tests
 if(NEURAL_NETWORK_BUILD_TESTS)
   add_subdirectory(tests)
+endif()
+
+# example
+if(NEURAL_NETWORK_BUILD_EXAMPLE)
+  add_subdirectory(example)
 endif()

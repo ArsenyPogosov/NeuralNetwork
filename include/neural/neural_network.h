@@ -1,8 +1,8 @@
-#include <differentiable.h>
-
 #include <Eigen/Dense>
 #include <functional>
 #include <memory>
+
+#include "differentiable.h"
 
 namespace neural
 {
@@ -35,6 +35,8 @@ public:
 
 	std::vector<double> DumpCoefs() const;
 	void LoadCoefs(const std::vector<double> &coefs);
+
+	~NeuralNetwork();
 
 private:
 	std::unique_ptr<NeuralNetworkImpl> pimpl_;
