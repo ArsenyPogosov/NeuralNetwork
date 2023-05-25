@@ -10,3 +10,4 @@ constexpr double DefaultLearningRateDecay =
     @NEURAL_NETWORK_DEFAULT_LEARNING_RATE_DECAY@;
 
 }  // namespace neural::consts
+

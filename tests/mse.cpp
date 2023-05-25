@@ -25,3 +25,4 @@ TEST_CASE("MSE is right", "[loss]")
 		REQUIRE(MSE.Eval1(x, y).isApprox(derivative));
 	}
 }
+

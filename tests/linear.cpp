@@ -31,3 +31,4 @@ TEST_CASE("Linear is right", "[activation]")
 		REQUIRE(Linear.Eval1(input) == derivative);
 	}
 }
+

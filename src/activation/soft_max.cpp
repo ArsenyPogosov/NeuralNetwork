@@ -21,3 +21,4 @@ Eigen::MatrixXd SoftMax::Eval1(const Eigen::VectorXd &x) const
 }
 
 }  // namespace neural::activation
+

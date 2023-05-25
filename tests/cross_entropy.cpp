@@ -25,3 +25,4 @@ TEST_CASE("CrossEntropy is right", "[loss]")
 		REQUIRE(CrossEntropy.Eval1(x, y).isApprox(derivative));
 	}
 }
+

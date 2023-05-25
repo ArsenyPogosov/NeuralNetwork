@@ -14,3 +14,4 @@ Eigen::MatrixXd Linear::Eval1(const Eigen::VectorXd &x) const
 }
 
 }  // namespace neural::activation
+

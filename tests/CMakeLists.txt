@@ -24,3 +24,4 @@ target_include_directories(
 target_link_libraries(tests PRIVATE neural Catch2::Catch2WithMain)
 
 catch_discover_tests(tests)
+

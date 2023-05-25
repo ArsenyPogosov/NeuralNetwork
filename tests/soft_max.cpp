@@ -36,3 +36,4 @@ TEST_CASE("SoftMax is right", "[activation]")
 		REQUIRE(SoftMax.Eval1(input).isApprox(derivative));
 	}
 }
+

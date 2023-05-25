@@ -59,3 +59,4 @@ endif()
 if(NEURAL_NETWORK_BUILD_EXAMPLE)
   add_subdirectory(example)
 endif()
+

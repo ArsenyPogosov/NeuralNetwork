@@ -185,3 +185,4 @@ TEST_CASE("Differentiable has value semantics", "[differentiable]")
 	REQUIRE(d81.Eval1(0) == 1);
 	REQUIRE(d82.Eval1(0) == 2);
 }
+

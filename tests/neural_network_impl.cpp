@@ -90,3 +90,4 @@ TEST_CASE("NeuralNetwork", "[neuralnetwork]")
 		REQUIRE(cnt > 0);
 	}
 }
+

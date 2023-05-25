@@ -41,3 +41,4 @@ TEST_CASE("ReLu is right", "[activation]")
 		         ReLu.Eval1(input) == derivative2));
 	}
 }
+

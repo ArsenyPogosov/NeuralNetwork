@@ -3,7 +3,6 @@
 
 #include <Eigen/Dense>
 #include <chrono>
-#include <iostream>
 
 namespace neural
 {
@@ -170,3 +169,4 @@ double NeuralNetworkImpl::TrainBatch(const Eigen::MatrixXd& x,
 }
 
 }  // namespace neural
+

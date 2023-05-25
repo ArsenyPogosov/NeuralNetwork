@@ -22,3 +22,4 @@ public:
 } CrossEntropy;
 
 }  // namespace neural::loss
+

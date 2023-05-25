@@ -93,3 +93,4 @@ void Layer::LoadCoefs(const std::vector<double> &coefs)
 }
 
 }  // namespace neural::layer
+

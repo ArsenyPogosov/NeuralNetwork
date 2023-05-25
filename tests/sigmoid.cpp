@@ -33,3 +33,4 @@ TEST_CASE("Sigmoid is right", "[activation]")
 		REQUIRE(Sigmoid.Eval1(input).isApprox(derivative));
 	}
 }
+

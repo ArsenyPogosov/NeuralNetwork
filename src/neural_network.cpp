@@ -55,3 +55,4 @@ NeuralNetwork::~NeuralNetwork()
 }
 
 }  // namespace neural
+
