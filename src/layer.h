@@ -20,8 +20,8 @@ public:
 	Gradient &operator*=(double d);
 
 private:
-	Eigen::MatrixXd da_;
-	Eigen::VectorXd db_;
+	Eigen::MatrixXd da_{};
+	Eigen::VectorXd db_{};
 
 	friend Layer;
 };
@@ -35,10 +35,10 @@ public:
 	                                const Eigen::RowVectorXd &u);
 	Gradient GetGrad(const Eigen::VectorXd &x, const Eigen::RowVectorXd &u);
 
-	void Descend(Gradient grad);
+	void Descend(const Gradient &grad);
 
 	size_t CoefsCount() const;
-	std::vector<double> GetCoefs() const;
+	std::vector<double> DumpCoefs() const;
 	void LoadCoefs(const std::vector<double> &coefs);
 
 private:

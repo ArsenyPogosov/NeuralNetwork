@@ -35,7 +35,7 @@ TEST_CASE("Layer CoefsCount is right", "[layer]")
 {
 	Layer l(3, 4, Dummy{});
 	REQUIRE(l.CoefsCount() == 3 * 4 + 4);
-	REQUIRE(l.CoefsCount() == l.GetCoefs().size());
+	REQUIRE(l.CoefsCount() == l.DumpCoefs().size());
 }
 
 TEST_CASE("Layer LoadCoefs is right", "[layer]")
@@ -43,7 +43,7 @@ TEST_CASE("Layer LoadCoefs is right", "[layer]")
 	Layer l(3, 2, Dummy{});
 	std::vector<double> coefs{1, 2, 3, 4, 5, 4, 3, 2};
 	REQUIRE_NOTHROW(l.LoadCoefs(coefs));
-	REQUIRE(l.GetCoefs() == coefs);
+	REQUIRE(l.DumpCoefs() == coefs);
 }
 
 // very ugly(

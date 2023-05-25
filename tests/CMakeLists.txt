@@ -16,7 +16,8 @@ add_executable(
   mse.cpp
   cross_entropy.cpp
   differentiable.cpp
-  layer.cpp)
+  layer.cpp
+  neural_network_impl.cpp)
 target_include_directories(
   tests PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include/neural"
                 "${CMAKE_CURRENT_SOURCE_DIR}/../src")

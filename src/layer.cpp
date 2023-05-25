@@ -11,6 +11,9 @@ namespace neural::layer
 
 Gradient &Gradient::operator+=(const Gradient &other)
 {
+	if (!da_.size())
+		return *this = other;
+
 	da_ += other.da_;
 	db_ += other.db_;
 
@@ -55,7 +58,7 @@ Gradient Layer::GetGrad(const Vector &x, const RowVector &u)
 	return res;
 }
 
-void Layer::Descend(Gradient grad)
+void Layer::Descend(const Gradient &grad)
 {
 	a_ -= grad.da_;
 	b_ -= grad.db_;
@@ -66,7 +69,7 @@ size_t Layer::CoefsCount() const
 	return a_.size() + b_.size();
 }
 
-std::vector<double> Layer::GetCoefs() const
+std::vector<double> Layer::DumpCoefs() const
 {
 	std::vector<double> coefs;
 	coefs.reserve(CoefsCount());
