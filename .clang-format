@@ -6,7 +6,7 @@ UseTab: ForIndentation
 AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
-BreakBeforeBraces: Linux
+BreakBeforeBraces: Allman
 IndentAccessModifiers: false
 AccessModifierOffset: -4
 

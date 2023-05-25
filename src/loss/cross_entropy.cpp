@@ -5,7 +5,8 @@
 namespace neural::loss
 {
 
-double CrossEntropy::Eval0(const Eigen::VectorXd &x, const Eigen::VectorXd &y) const
+double CrossEntropy::Eval0(const Eigen::VectorXd &x,
+                           const Eigen::VectorXd &y) const
 {
 	size_t right = y(0);
 	return -log(x(right));

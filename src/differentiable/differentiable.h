@@ -12,12 +12,10 @@ public:
 	template <typename T>
 	Differentiable(T f)
 	    : underlying_(std::move(f)),
-	      eval0_([](std::any &f, Inputs... xn) -> Output {
-		      return std::any_cast<T &>(f).Eval0(xn...);
-	      }),
-	      eval1_([](std::any &f, Inputs... xn) -> Derivative {
-		      return std::any_cast<T &>(f).Eval1(xn...);
-	      })
+	      eval0_([](std::any &f, Inputs... xn) -> Output
+	             { return std::any_cast<T &>(f).Eval0(xn...); }),
+	      eval1_([](std::any &f, Inputs... xn) -> Derivative
+	             { return std::any_cast<T &>(f).Eval1(xn...); })
 	{
 	}
 	Output Eval0(Inputs... xn)

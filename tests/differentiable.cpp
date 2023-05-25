@@ -4,7 +4,8 @@
 
 using neural::differentiable::Differentiable;
 
-struct Dummy {
+struct Dummy
+{
 public:
 	int Eval0(int)
 	{
@@ -17,7 +18,8 @@ public:
 	}
 };
 
-struct Id {
+struct Id
+{
 public:
 	int Eval0(int x)
 	{
@@ -30,7 +32,8 @@ public:
 	}
 };
 
-struct Line {
+struct Line
+{
 public:
 	double Eval0(double x, double y)
 	{
@@ -42,7 +45,8 @@ public:
 	}
 };
 
-struct MultiType {
+struct MultiType
+{
 public:
 	double Eval0(std::string)
 	{
@@ -54,7 +58,8 @@ public:
 	}
 };
 
-struct MultiTypeAndArgs {
+struct MultiTypeAndArgs
+{
 public:
 	int *Eval0(double, size_t, std::string &)
 	{
@@ -66,13 +71,15 @@ public:
 	}
 };
 
-struct NonCopyable {
+struct NonCopyable
+{
 	NonCopyable() = default;
 	NonCopyable(const NonCopyable &) = delete;
 	NonCopyable &operator=(const NonCopyable &) = delete;
 };
 
-struct NonCopyableHolder {
+struct NonCopyableHolder
+{
 public:
 	int Eval0(const NonCopyable &)
 	{
@@ -84,7 +91,8 @@ public:
 	}
 };
 
-struct CopyCounter {
+struct CopyCounter
+{
 public:
 	CopyCounter()
 	{
@@ -110,7 +118,8 @@ private:
 	int cnt_ = 0;
 };
 
-struct Synchronizer {
+struct Synchronizer
+{
 public:
 	int Eval0(int x)
 	{
