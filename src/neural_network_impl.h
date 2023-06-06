@@ -10,8 +10,8 @@ namespace neural
 {
 
 using LossFunction =
-    differentiable::Differentiable<double, Eigen::RowVectorXd, Eigen::VectorXd,
-                                   Eigen::VectorXd>;
+    differentiable::Differentiable<double, Eigen::RowVectorXd, const Eigen::VectorXd&,
+                                   const Eigen::VectorXd&>;
 
 using layer::ActivationFunction;
 

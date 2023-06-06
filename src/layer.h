@@ -10,7 +10,7 @@ namespace neural::layer
 
 using ActivationFunction =
     differentiable::Differentiable<Eigen::VectorXd, Eigen::MatrixXd,
-                                   Eigen::VectorXd>;
+                                   const Eigen::VectorXd &>;
 class Layer;
 
 class Gradient
